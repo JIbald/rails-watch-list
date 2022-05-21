@@ -1,4 +1,11 @@
 <h1><%= @list.name %></h1>
+<h2> THIS LISTS PHOTO </h2>
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <!-- <%= cl_image_tag "ddxvkzmrlhtvjv0lmbvq", height: 300, width: 400, crop: :fill %> -->
+  <%= cl_image_tag("ddxvkzmrlhtvjv0lmbvq", width: 400, height: 300, crop: :fill) %>
+<% end %>
 
 <p><strong>Movies</strong></p>
 <ul>
@@ -13,13 +20,19 @@
 </ul>
 <br>
 
-<p>Add a Movie</p>
+<h4>Add a movie</h4>
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.association :movie %>
   <%= f.input :comment %>
   <%= f.button :submit %>
 <% end %>
 
-<p>Add a Picture</p>
 
-<%= link_to "home", lists_path %>
+<h4>Change the picture</h4>
+<%= simple_form_for [@list] do |f|%>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to "home", root_path %>

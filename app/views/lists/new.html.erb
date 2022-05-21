@@ -1,8 +1,16 @@
 <h1>Lists#new</h1>
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
+
+<!--
+<h4>Add a picture</h4>
+<%= simple_form_for [@list] do |f|%>
+  <%= f.button :submit %>
+<% end %>
+-->
 
 <br>
 <%= link_to "home", lists_path %>

@@ -7,6 +7,7 @@ ruby "3.0.3"
 gem "rails", "~> 7.0.3"
 
 gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
 
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
